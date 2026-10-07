@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Daee 🌸</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .falling-flowers {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .falling-flowers span {
+            position: absolute;
+            top: -50px;
+            font-size: 25px;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        .falling-flowers span:nth-child(1) {
+            left: 5%;
+            animation-duration: 6s;
+            animation-delay: 4s;
+        }
+
+        .falling-flowers span:nth-child(2) {
+            left: 15%;
+            animation-duration: 8s;
+            animation-delay: 5s;
+        }
+
+        .falling-flowers span:nth-child(3) {
+            left: 28%;
+            animation-duration: 7s;
+            animation-delay: 4.5s;
+        }
+
+        .falling-flowers span:nth-child(4) {
+            left: 40%;
+            animation-duration: 9s;
+            animation-delay: 6s;
+        }
+
+        .falling-flowers span:nth-child(5) {
+            left: 52%;
+            animation-duration: 6.5s;
+            animation-delay: 4s;
+        }
+
+        .falling-flowers span:nth-child(6) {
+            left: 65%;
+            animation-duration: 8s;
+            animation-delay: 5.5s;
+        }
+
+        .falling-flowers span:nth-child(7) {
+            left: 78%;
+            animation-duration: 7s;
+            animation-delay: 4.8s;
+        }
+
+        .falling-flowers span:nth-child(8) {
+            left: 90%;
+            animation-duration: 9s;
+            animation-delay: 6.5s;
+        }
+
+        .falling-flowers span:nth-child(9) {
+            left: 35%;
+            animation-duration: 7.5s;
+            animation-delay: 7s;
+        }
+
+        .falling-flowers span:nth-child(10) {
+            left: 85%;
+            animation-duration: 6s;
+            animation-delay: 8s;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(50px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(-50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .flower {
+            position: relative;
+            width: 220px;
+            height: 300px;
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+
+        .stem {
+            position: absolute;
+            width: 10px;
+            height: 190px;
+            background: #3d8b40;
+            bottom: 0;
+            left: 105px;
+            border-radius: 10px;
+            transform-origin: bottom;
+            animation: grow 2s ease forwards;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 70px;
+            height: 35px;
+            background: #4caf50;
+            border-radius: 100% 0;
+            bottom: 80px;
+            left: 55px;
+            transform: rotate(-25deg);
+            opacity: 0;
+            animation: leaf 1s ease 1.5s forwards;
+        }
+
+        .leaf.right {
+            left: 105px;
+            transform: rotate(25deg) scaleX(-1);
+        }
+
+        .flower-head {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            top: 5px;
+            left: 45px;
+            transform: scale(0);
+            animation: bloom 2s ease 1.8s forwards;
+        }
+
+        .petal {
+            position: absolute;
+            width: 65px;
+            height: 90px;
+            background: #ff7eb6;
+            border-radius: 50%;
+            top: 20px;
+            left: 33px;
+            transform-origin: 50% 90%;
+        }
+
+        .p1 { transform: rotate(0deg); }
+        .p2 { transform: rotate(72deg); }
+        .p3 { transform: rotate(144deg); }
+        .p4 { transform: rotate(216deg); }
+        .p5 { transform: rotate(288deg); }
+
+        .center {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background: #ffd84d;
+            border-radius: 50%;
+            top: 48px;
+            left: 38px;
+            z-index: 2;
+        }
+
+        .note {
+            color: white;
+            text-align: center;
+            font-size: 22px;
+            line-height: 1.5;
+            opacity: 0;
+            z-index: 3;
+            animation: showNote 2s ease 3.5s forwards;
+        }
+
+        .note span {
+            color: #ff8fc4;
+            font-weight: bold;
+        }
+
+        @keyframes grow {
+            from {
+                height: 0;
+            }
+            to {
+                height: 190px;
+            }
+        }
+
+        @keyframes leaf {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: scale(0);
+            }
+
+            70% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes showNote {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="falling-flowers">
+        <span>🌸</span>
+        <span>🌷</span>
+        <span>🌸</span>
+        <span>🌺</span>
+        <span>🌸</span>
+        <span>🌷</span>
+        <span>🌺</span>
+        <span>🌸</span>
+        <span>🌷</span>
+        <span>🌸</span>
+    </div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+
+        <div class="leaf"></div>
+        <div class="leaf right"></div>
+
+        <div class="flower-head">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="center"></div>
+        </div>
+
+    </div>
+
+    <div class="note">
+        Sorry daee 🥹🌸<br>
+        Please don't do <span>tampo-tampo</span> na 🥹<br>
+        Ryzil casenas sorry daee 🥹
+
+    </div>
+
+</body>
+</html>
